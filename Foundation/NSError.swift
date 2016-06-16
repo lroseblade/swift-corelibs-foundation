@@ -246,3 +246,40 @@ public protocol _BridgedNSError : __BridgedNSError, Hashable {
     // TODO: Was _NSErrorDomain, but that caused a module error.
     static var __NSErrorDomain: String { get }
 }
+
+public struct ErrorUserInfoKey : RawRepresentable, _SwiftNewtypeWrapper, Equatable, Hashable, _ObjectiveCBridgeable {
+  public init(rawValue: String) { self.rawValue = rawValue }
+  public var rawValue: String
+}
+
+public extension ErrorUserInfoKey {
+  @available(*, deprecated, renamed: "NSUnderlyingErrorKey")
+  static let underlyingErrorKey = ErrorUserInfoKey(rawValue: NSUnderlyingErrorKey)
+
+  @available(*, deprecated, renamed: "NSLocalizedDescriptionKey")
+  static let localizedDescriptionKey = ErrorUserInfoKey(rawValue: NSLocalizedDescriptionKey)
+
+  @available(*, deprecated, renamed: "NSLocalizedFailureReasonErrorKey")
+  static let localizedFailureReasonErrorKey = ErrorUserInfoKey(rawValue: NSLocalizedFailureReasonErrorKey)
+
+  @available(*, deprecated, renamed: "NSLocalizedRecoverySuggestionErrorKey")
+  static let localizedRecoverySuggestionErrorKey = ErrorUserInfoKey(rawValue: NSLocalizedRecoverySuggestionErrorKey)
+
+  @available(*, deprecated, renamed: "NSLocalizedRecoveryOptionsErrorKey")
+  static let localizedRecoveryOptionsErrorKey = ErrorUserInfoKey(rawValue: NSLocalizedRecoveryOptionsErrorKey)
+
+  @available(*, deprecated, renamed: "NSRecoveryAttempterErrorKey")
+  static let recoveryAttempterErrorKey = ErrorUserInfoKey(rawValue: NSRecoveryAttempterErrorKey)
+
+  @available(*, deprecated, renamed: "NSHelpAnchorErrorKey")
+  static let helpAnchorErrorKey = ErrorUserInfoKey(rawValue: NSHelpAnchorErrorKey)
+
+  @available(*, deprecated, renamed: "NSStringEncodingErrorKey")
+  static let stringEncodingErrorKey = ErrorUserInfoKey(rawValue: NSStringEncodingErrorKey)
+
+  @available(*, deprecated, renamed: "NSURLErrorKey")
+  static let NSURLErrorKey = ErrorUserInfoKey(rawValue: Foundation.NSURLErrorKey)
+
+  @available(*, deprecated, renamed: "NSFilePathErrorKey")
+  static let filePathErrorKey = ErrorUserInfoKey(rawValue: NSFilePathErrorKey)
+}
